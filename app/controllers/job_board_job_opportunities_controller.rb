@@ -1,0 +1,2 @@
+class JobBoardJobOpportunitiesController < ApplicationController
+end
