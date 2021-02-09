@@ -4,6 +4,8 @@
     ruby '2.7.2'
 * System dependencies:
     Developed on Windows 10
+* PostgreSQL: 
+    PostgreSQL 13
 
 ## PostgreSQL Setup
 1. Please configure `username` and `password` in `./config/database.yml` accroding to your own PostgreSQL.
