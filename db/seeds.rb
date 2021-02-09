@@ -25,6 +25,15 @@ CSV.foreach(Rails.root.join('lib', 'seeds', 'job_opportunities.csv'), headers: t
     })
     JobBoard.all.each do |job_board_c|
         if row['Job URL']
+            if row['Job URL'].include? row['Company Name']
+                job_opp.job_source = "Company Website"
+                if job_opp.save
+                    if row['Job URL'].include? job_board_c.root_domain
+                        JobBoardJobOpportunity.create(job_board: job_board_c, job_opportunity: job_opp)
+                    end
+                end
+                break
+            end
             if row['Job URL'].include? job_board_c.root_domain
                 job_opp.job_source = job_board_c.name
                 if job_opp.save
